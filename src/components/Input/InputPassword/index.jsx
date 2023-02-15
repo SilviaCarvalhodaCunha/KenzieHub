@@ -1,5 +1,5 @@
 import React from "react";
-import { RxEyeOpen, RxEyeClosed } from "react-icons/Rx";
+import { RxEyeOpen, RxEyeClosed } from "react-icons/rx";
 import { DivPassword, FieldsetStyled } from "./style";
 
 export function InputPassword({
