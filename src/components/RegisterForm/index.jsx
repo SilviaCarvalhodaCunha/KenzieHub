@@ -8,6 +8,7 @@ import { Input } from "../Input"
 import { Select } from "../Select"
 import { formSchema } from "./formSchema";
 import { api } from "../../services/api"
+import { FormStyled } from "./style";
 
 export function RegisterForm() {
   const { register, handleSubmit, formState: { errors }, reset
@@ -35,7 +36,7 @@ export function RegisterForm() {
   }
 
   return(
-    <form onSubmit={handleSubmit(submit)}>
+    <FormStyled onSubmit={handleSubmit(submit)}>
       <Input label="Nome" type="text" placeholder="Digite aqui seu nome" register={register("name")} error={errors.name} />
 
       <Input label="Email" type="email" placeholder="Digite aqui seu email" register={register("email")} error={errors.email} />
@@ -51,6 +52,6 @@ export function RegisterForm() {
       <Select label="Selecionar Módulo" register={register("course_module")} error={errors.course_module}/>
 
       <button type="submit">Cadastrar</button>
-    </form>
+    </FormStyled>
   )
 }

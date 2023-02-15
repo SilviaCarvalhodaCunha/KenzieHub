@@ -8,7 +8,7 @@ function App() {
       <GlobalStyles />
       <AppRoutes />
       <ToastContainer
-        position="bottom-center"
+        position="top-right"
         autoClose={2000}
         limit={1}
         hideProgressBar={false}
@@ -18,7 +18,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme="dark"
       />
     </>
   );

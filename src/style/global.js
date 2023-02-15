@@ -17,6 +17,7 @@ button{
 
 body{
     font-family: 'Inter', sans-serif;
+    background-color:  var(--gray-4);
 }
 `;
 
@@ -36,8 +37,17 @@ export const GlobalStyle = createGlobalStyle`
     --sucess: #3FE864;
     --negative: #E83F5B;
 
-    --font-1: 1rem; /* 16px */    
-    --font-2: 0.75rem; /* 12px */
+    --font-1: 1rem; /* 16px */  
+    --font-2: 0.902rem; /* 14.439px */ 
+    --font-3: 0.75rem; /* 12px */
+    --font-4: 0.602rem; /* 9.62602px */
+    --font-5: 0.802rem; /* 12.8347px */
+    --font-6: 0.611rem; /* 9.772px */
+    --font-7: 0.814rem; /* 13.0293px */
+    --font-8: 0.899rem; /* 14.3916px */
+    --font-9: 0.6rem; /* 9.59437px */
+    --font-10: 0.8rem; /* 12.7925px */
+    --font-11: 1.125rem; /* 18px */
 
     --weight-1: 400;
     --weight-2: 500;

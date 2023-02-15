@@ -1,8 +1,9 @@
 import React from "react";
+import { FieldsetStyled } from "./style.js";
 
 export function Select({ label, register, error }) {
   return (
-    <fieldset>
+    <FieldsetStyled>
       <label htmlFor={register.name}>{label}</label>
       <select name={register.name} {...register}>
         <option value="Primeiro módulo (Introdução ao Frontend)">
@@ -17,6 +18,6 @@ export function Select({ label, register, error }) {
         <option value="Quarto módulo (Backend Avançado)">Quarto módulo (Backend Avançado)</option>
       </select>
       {error && <p>{error.message}</p>}
-    </fieldset>
+    </FieldsetStyled>
   )
 }

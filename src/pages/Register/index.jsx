@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/Logo.svg";
 import { RegisterForm } from "../../components/RegisterForm";
+import { DivStyled, HeaderContainer, MainContainer } from "./style";
 
 export function Register() {
   const navigate = useNavigate();
@@ -9,16 +10,20 @@ export function Register() {
 
   return (
     <>
-      <header>
-        <img src={logo} alt="logo" />
-        <button onClick={toGoBack}>Voltar</button>
-      </header>
+      <HeaderContainer>
+        <div>
+          <img src={logo} alt="logo" />
+          <button onClick={toGoBack}>Voltar</button>
+        </div>
+      </HeaderContainer>
 
-      <main>
+      <MainContainer>
+        <DivStyled>
           <h2>Crie sua conta</h2>
           <p>Rapido e grátis, vamos nessa</p>
           <RegisterForm />
-      </main>
+        </DivStyled>
+      </MainContainer>
     </>
   );
 }
