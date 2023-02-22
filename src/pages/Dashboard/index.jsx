@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/Logo.svg";
+import { UserContext } from "../../contexts/UserContext";
 import {
   HeaderContainer,
   HrStyled,
@@ -10,6 +11,8 @@ import {
 } from "./style";
 
 export function Dashboard() {
+  const { userLogout } = useContext(UserContext)
+
   const localStorageUser = JSON.parse(localStorage.getItem("@USER"));
   const user = localStorageUser.name;
   const module = localStorageUser.course_module;
@@ -18,7 +21,7 @@ export function Dashboard() {
       <HeaderContainer>
         <div>
           <img src={logo} alt="logo" />
-          <Link to="/" onClick={() => localStorage.clear()}>
+          <Link to="/" onClick={() => userLogout()}>
             Sair
           </Link>
         </div>
