@@ -63,25 +63,26 @@ export const SectionProfile = styled.section`
   }
 `;
 
-export const SectionInformation = styled.section`
+export const SectionTechnology = styled.section`
   padding: 35.5px 13px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.438rem;
-
-  h3 {
-    font-size: var(--font-11);
-    font-weight: var(--weight-4);
-    color: var(--gray-0);
-  }
-
-  p {
-    font-size: var(--font-1);
-    font-weight: var(--weight-1);
-    color: var(--white);
-  }
 
   @media (min-width: 769px) {
     width: 70%;
+  }
+`;
+
+export const DivSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h2 {
+    font-size: var(--font-1);
+    font-weight: var(--weight-3);
+    color: var(--gray-0);
+  }
+
+  button {
+    background: transparent;
   }
 `;

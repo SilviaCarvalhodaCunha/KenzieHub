@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import "react-toastify/dist/ReactToastify.css";
 import { Input } from "../Input";
-import { Select } from "../Select";
+import { Select } from "./Select";
 import { formSchema } from "./formSchema";
 import { FormStyled } from "./style";
 import { UserContext } from "../../contexts/UserContext";

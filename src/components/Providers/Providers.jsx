@@ -1,10 +1,13 @@
 import React from "react";
+import { TechsProviders } from "../../contexts/TechsContext";
 import { UserProvider } from "../../contexts/UserContext";
 
-export function Providers({children}) {
+export function Providers({ children }) {
   return (
     <UserProvider>
-      {children}
+      <TechsProviders>
+        {children}
+      </TechsProviders>
     </UserProvider>
   );
 }

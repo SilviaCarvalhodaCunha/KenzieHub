@@ -48,6 +48,10 @@ export const GlobalStyle = createGlobalStyle`
     --font-9: 0.6rem; /* 9.59437px */
     --font-10: 0.8rem; /* 12.7925px */
     --font-11: 1.125rem; /* 18px */
+    --font-12: 0.702rem; /* 11.2304px */
+    --font-13: 0.888rem; /* 14.2123px */
+    --font-14: 0.761rem; /* 12.182px */
+    --font-15: 0.799rem; /* 12.7913px */
 
     --weight-1: 400;
     --weight-2: 500;

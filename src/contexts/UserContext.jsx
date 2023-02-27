@@ -3,97 +3,101 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { api } from "../services/api";
 
-export const UserContext = createContext({})
+export const UserContext = createContext({});
 
-export function UserProvider({children}) {
-  const navigate = useNavigate();
-
-  const localStorageUser = localStorage.getItem("@USER")
-  const [user, setUser] = useState(localStorageUser? JSON.parse(localStorageUser) : null);
+export function UserProvider({ children }) {
+  const localStorageUser = localStorage.getItem("@USER");
+  const [user, setUser] = useState(
+    localStorageUser ? JSON.parse(localStorageUser) : null
+  );
+  const [modal, setModal] = useState(false);
+  const [modalUp, setModalUp] = useState(false)
   const [loading, setLoading] = useState(false);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
-    const token = localStorage.getItem("@TOKEN")
-    if(token){
-      const userAutoLogin = async() => {
+    const token = JSON.parse(localStorage.getItem("@TOKEN"));
+    if (token) {
+      const userAutoLogin = async () => {
         try {
-          const response = await api.get('/profile', {
+          const response = await api.get("/profile", {
             headers: {
-              Authorization: `Bearer ${token}`
-            }
-          })
-          setUser(response.data)
-          navigate("/dashboard")
-          
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          setUser(response.data);
+          navigate("/dashboard");
         } catch (error) {
-          console.log(error)
+          toast.error("Algo deu errado!");
 
-          toast.error("Algo deu errado!")
-
+          localStorage.removeItem("@TOKEN");
         }
-      }
-      userAutoLogin()
+      };
+      userAutoLogin();
     }
-  }, [])
+  }, [modal, modalUp]);
 
+  const userRegister = async (data) => {
+    try {
+      const response = await api.post("/users", data);
 
-  const userRegister = async(data) => {
-    try {      
-      const response = await api.post('/users', data)
-      
-      toast.success("Cadastro realizado com sucesso!")
+      toast.success("Cadastro realizado com sucesso!");
 
       navigate("/");
-
     } catch (error) {
-      
-      toast.error(error.response.data.message)      
-    
+      toast.error(error.response.data.message);
     }
-  }
+  };
 
-
-  const userLogin = async(data) => {
+  const userLogin = async (data) => {
     setLoading(true);
     try {
       const response = await api.post("/sessions", data);
-      setUser(response.data.user)
+      setUser(response.data.user);
 
       localStorage.setItem("@TOKEN", JSON.stringify(response.data.token));
 
+      localStorage.setItem("@USER", JSON.stringify(response.data.user));
+      
       localStorage.setItem("@USERID", JSON.stringify(response.data.user.id));
 
-      localStorage.setItem("@USER", JSON.stringify(response.data.user));
 
       toast.success("Login realizado com sucesso!");
 
       navigate("/dashboard");
-
     } catch (error) {
-
       toast.error("Email ou senha inválidos");
-
     } finally {
-
       setLoading(false);
-
     }
-  }
+  };
 
   const userLogout = () => {
-    setUser(null)
+    setUser(null);
 
-    localStorage.removeItem("@TOKEN")
-    localStorage.removeItem("@USERID")
-    localStorage.removeItem("@USER")
+    localStorage.removeItem("@TOKEN");
+    localStorage.removeItem("@USERID");
+    localStorage.removeItem("@USER");
 
-    navigate("/")
-  }
-
+    navigate("/");
+  };
 
   return (
-    <UserContext.Provider value={{userRegister, userLogin, userLogout, loading, user}}>
+    <UserContext.Provider
+      value={{
+        modal,
+        setModal,
+        modalUp, 
+        setModalUp,
+        userRegister,
+        userLogin,
+        userLogout,
+        loading,
+        user,
+      }}
+    >
       {children}
     </UserContext.Provider>
-  )
+  );
 }

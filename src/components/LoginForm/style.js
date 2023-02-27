@@ -15,9 +15,4 @@ export const FormContainer = styled.form`
     border-radius: var(--radius);
     padding: 0.516rem 0;
   }
-
-  img{
-      width: 100%;
-      height: 100%;
-    }
 `;

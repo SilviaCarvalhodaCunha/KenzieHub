@@ -26,8 +26,7 @@ export function LoginForm() {
 
 
   const submit = (data) => {
-    userLogin(data)
-    
+    userLogin(data)    
   };
 
   return (
