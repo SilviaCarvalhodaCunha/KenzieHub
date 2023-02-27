@@ -21,6 +21,7 @@ export const DivTechnology = styled.div`
       border-radius: var(--radius);
       display: flex;
       justify-content: space-between;
+      cursor: pointer;
 
       h2{
         font-size: var(--font-13);
@@ -32,6 +33,14 @@ export const DivTechnology = styled.div`
         font-size: var(--font-14);
         font-weight: var(--weight-1);
         color: var(--gray-1);
+      }
+    }
+    
+    li:hover{
+      background-color: var(--gray-2);
+      
+      p{
+        color: var(--gray-0);
       }
     }
 

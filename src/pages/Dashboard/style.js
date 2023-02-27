@@ -20,6 +20,10 @@ export const HeaderContainer = styled.header`
       padding: 0.28rem 1.611rem;
     }
 
+    a:hover{
+      background-color: var(--gray-2);
+    }
+
     @media (min-width: 769px) {
       width: 70%;
     }
@@ -84,5 +88,12 @@ export const DivSection = styled.div`
 
   button {
     background: transparent;
+  }
+
+  @media (min-width: 769px) {
+    img:hover {
+      transform: scale(1.2);
+      transition: transform 0.2s ease-in-out;
+    }
   }
 `;

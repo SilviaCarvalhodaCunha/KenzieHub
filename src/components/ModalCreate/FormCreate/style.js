@@ -17,4 +17,8 @@ export const FormStyled = styled.form`
     border-radius: var(--radius);
     text-align: center;    
   }
+
+  button:hover{
+    background-color: var(--color-primary-Focus);
+  }
 `
